@@ -83,6 +83,7 @@ case $1 in
         if ! [ -f "exit.sh" ]; then
             echo "Ошибка: экзит спиздили." >&2; exit -1
         fi
+        . ./exit.sh
         if  [[ $# -eq 1 ]]; then
            exit 0
        else
@@ -93,6 +94,7 @@ case $1 in
         if ! [ -f "help.sh" ]; then
             echo "Ошибка: хелп спиздили." >&2; exit -1
         fi
+        . ./help.sh
 
         help
         ;;
@@ -100,6 +102,7 @@ case $1 in
         if ! [ -f "interactive.sh" ]; then
             echo "Ошибка: интерактив спиздили." >&2; exit -1
         fi
+        . ./interactive.sh
 
         interactive
         ;;
