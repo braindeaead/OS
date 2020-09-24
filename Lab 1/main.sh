@@ -84,7 +84,7 @@ case $1 in
             echo "Ошибка: экзит спиздили." >&2; exit -1
         fi
         . ./exit.sh
-        if  [[ $# -eq 1 ]]; then
+        if  [ -z "$2" ]; then
            exit 0
        else
            exit "$2"
