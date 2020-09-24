@@ -83,11 +83,11 @@ case $1 in
         if ! [ -f "exit.sh" ]; then
             echo "Ошибка: экзит спиздили." >&2; exit -1
         fi
-        if ! [[ $# -eq 1 ]]; then
-            echo "Ошибка: для корректной работы экзита нужно указать верное количество параметров (1). Спасибо за внимание." >&2; exit -2
+        if  [[ $# -eq 1 ]]; then
+           exit 0
+       else
+           exit "$2"
         fi
-
-        exit "$2"
         ;;
     help)
         if ! [ -f "help.sh" ]; then
