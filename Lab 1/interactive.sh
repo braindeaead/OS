@@ -19,6 +19,7 @@ interactive() {
                 echo "Ошибка: калькулятора нема." >&2;
                 interactive
             fi
+            . ./calc.sh
             echo "Введите, какую операцию вы хотите выполнить."
             read operation
             if [[ "$operation" != "sum" && "$operation" != "sub" && "$operation" != "mul" && "$operation" != "div" ]]; then
@@ -46,6 +47,7 @@ interactive() {
                 echo "Ошибка: серча нема." >&2;
                 interactive
             fi
+            . ./search.sh
             echo "Введите регулярное выражение."; read regular
             echo "Введите директорию."; read directory
             if ! [ -d "$directory" ]; then
@@ -61,6 +63,7 @@ interactive() {
                 echo "Ошибка: реверса нема." >&2;
                 interactive
             fi
+            . ./reverse.sh
             echo "Введите название файла, откуда мы будем писать."; read from
             if ! [ -f "$from" ]; then
                 echo "Ошибка: данного файла не существует." >&2
@@ -80,6 +83,7 @@ interactive() {
                 echo "Ошибка: стрлена нема." >&2;
                 interactive
             fi
+            . ./strlen.sh
             echo "Введите строку."; read string
 
             strlen "$string"
@@ -90,6 +94,7 @@ interactive() {
                 echo "Ошибка: лога нема." >&2;
                 interactive
             fi
+            . ./log.sh
             if ! [ -f "/var/log/anaconda/X.log" ]; then
                 echo "Ошибка: лог файл не найден." >&2;
                 interactive
@@ -103,19 +108,21 @@ interactive() {
                 echo "Ошибка: помощи не будет." >&2;
                 interactive
             fi
+            . ./help.sh
             help
             interactive
             ;;
         exit)
-            if ! [ -f "exit.sh" ]; then
+            if ! [ -f "exitL.sh" ]; then
                 echo "Ошибка: выхода нет." >&2;
                 interactive
             fi
+            . ./exitL.sh
             echo "Введите код ошибки или оставьте строку пустой."; read code
             if [ -z "$code" ]; then
-                exit 0;
+                exit_ 0;
             else
-                exit "$code"
+                exit_ "$code"
             fi
             ;;
         *)

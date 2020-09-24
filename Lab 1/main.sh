@@ -79,15 +79,15 @@ case $1 in
         log "/var/log/anaconda/X.log"
         exit 0
         ;;
-    exit)
-        if ! [ -f "exit.sh" ]; then
+    "exit")
+        if ! [ -f "exitL.sh" ]; then
             echo "Ошибка: экзит спиздили." >&2; exit -1
         fi
-        . ./exit.sh
+        . ./exitL.sh
         if  [ -z "$2" ]; then
-           exit 0
+           exit_ 0
        else
-           exit "$2"
+           exit_ "$2"
         fi
         ;;
     help)
