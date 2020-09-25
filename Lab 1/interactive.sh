@@ -70,8 +70,8 @@ interactive() {
                 interactive
             fi
             echo "Введите название файла, куда мы будем записывать."; read where
-            if ! [ -z "$where" ]; then
-                echo "Ошибка: укажите название файла." >&2;
+            if ! [ -f "$where" ]; then
+                echo "Ошибка: такого файла не существует." >&2;
                 interactive
             fi
 
