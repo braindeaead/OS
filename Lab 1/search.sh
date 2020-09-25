@@ -2,6 +2,10 @@
 
 search() {
 
-    grep -r "$1" "$2"
+   if grep -r "$1" "$2" ; then
+       return
+   else
+       echo "Нет совпадений." >&2;
+   fi
 
 }
