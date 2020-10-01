@@ -2,7 +2,7 @@
 
 search() {
 
-   if grep -r "$1" "$2" ; then
+   if grep -r "$2" "$1" ; then
        return
    else
        echo "Нет совпадений." >&2;
