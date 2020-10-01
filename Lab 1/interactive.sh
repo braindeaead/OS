@@ -74,6 +74,18 @@ interactive() {
                 echo "Ошибка: такого файла не существует." >&2;
                 interactive
             fi
+            if ! [ -r "$from" ]; then
+                echo "Ошибка: файл, откуда мы собираемся записывать, недоступен для чтения." >&2;
+                interactive
+            fi
+            if ! [ -e "$where" ]; then
+                if ! [ -w "$where" ]; then
+                     echo "Ошибка: файл, куда мы собираемся записывать, недоступен для записи." >&2;
+                    interactive
+                fi
+            else
+                touch $where
+            fi
 
             reverse "$from" "$where"
             interactive
