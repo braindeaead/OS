@@ -131,6 +131,11 @@ interactive() {
             fi
             . ./exitL.sh
             echo "Введите код ошибки или оставьте строку пустой."; read code
+            reg='^[+-]?[0-9]+$'
+            if ! [[ $code =~ $reg ]]; then
+                echo "Ошибка: строка не может быть кодом ошибки." >&2;
+                interactive
+            fi
             if [ -z "$code" ]; then
                 exit_ 0;
             else
