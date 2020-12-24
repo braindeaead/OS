@@ -2,5 +2,5 @@
 
 mkfifo pipe
 
-zsh generator.sh&zsh obr.sh
+zsh obr.sh&zsh generator.sh
 rm pipe

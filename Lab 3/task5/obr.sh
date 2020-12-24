@@ -19,13 +19,13 @@ tail -f pipe |
                 exit 0
                 ;;
             [0-9])
-                if [ "$oper"=="+" ];
+                if [[ $oper = "+" ]];
                 then
-                    res=$($res+$num)
+                    res=$(($res + $num))
                     echo $res
-                elif [ "$oper"=="*" ];
+                elif [[ $oper = "*" ]];
                 then
-                    res=$($res+$num)
+                    res=$(($res + $num))
                     echo $res
                 fi
                 ;;

@@ -6,7 +6,7 @@ do
 
     echo $symbol > pipe
 
-    if [[ $symbol == "quit" ]];
+    if [[ $symbol = "quit" ]];
     then
         echo "quitted";
         exit 0;
