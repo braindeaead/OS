@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-mkfifo channel
+mkfifo pipe
 
 zsh generator.sh&zsh obr.sh
-rm channel
+rm pipe

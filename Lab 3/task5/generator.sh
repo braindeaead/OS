@@ -4,7 +4,7 @@ while true;
 do
     read symbol
 
-    echo $symbol > channel
+    echo $symbol > pipe
 
     if [[ $symbol == "quit" ]];
     then

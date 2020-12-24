@@ -3,7 +3,7 @@
 oper="+"
 res=1
 
-tail -f channel |
+tail -f pipe |
     while true;
     do
         read num
